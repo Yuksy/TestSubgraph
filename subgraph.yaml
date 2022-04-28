@@ -6,7 +6,7 @@ dataSources:
     name: Contract
     network: mainnet
     source:
-      address: "0x2cA08166260BB48cABd7ce59C26efDcbCe1421Eb"
+      address: "0xdb34d5cb6319Dad5278858AE8b74EDB53ebD8Dcf"
       startBlock: 10707900
       abi: Registry
     mapping:
