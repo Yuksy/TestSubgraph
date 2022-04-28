@@ -13,12 +13,12 @@ export function handleUnstableTokenExchange(event: TokenExchange): void {
 
 export function handleAddLiquidity(event: AddLiquidity): void {
   // getOrCreatePool(event.params.pool, event)
-  log.info("----------------Step into handleUnstableTokenExchange-----------------------",[])
+  log.info("----------------Step into handleAddLiquidity-----------------------",[])
 }
 
 export function handleRemoveLiquidity(event: RemoveLiquidity): void {
   // getOrCreatePool(event.params.pool, event)
-  log.info("----------------Step into handleUnstableTokenExchange-----------------------",[])
+  log.info("----------------Step into handleRemoveLiquidity-----------------------",[])
 }
 
 
