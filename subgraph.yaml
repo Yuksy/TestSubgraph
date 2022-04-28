@@ -40,19 +40,26 @@ dataSources:
       kind: ethereum/events
       apiVersion: 0.0.4
       language: wasm/assemblyscript
+      file: ./src/mapping.ts
       entities:
-        - Approval
-        - ApprovalForAll
-        - TokenMetadataURIUpdated
-        - TokenURIUpdated
-        - Transfer
+        - Pool
       abis:
+        - name: ERC20
+          file: ./abis/ERC20.abi
+        - name: PoolInfo
+          file: ./abis/PoolInfo.abi
         - name: Registry
           file: ./abis/Registry.abi
+        - name: StableSwap
+          file: ./abis/StableSwap.abi
+        - name: LpAddressProvider
+          file: ./abis/CrptoFactory.abi
       eventHandlers:
         - event: PoolAdded(indexed address)
           handler: handlePoolAdded
-      file: ./src/mapping.ts
+        - event: PoolRemoved(indexed address)
+          handler: handlePoolRemoved
+      
   
   # - name: UnstablePool
   #   kind: ethereum/contract

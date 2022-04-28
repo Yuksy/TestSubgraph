@@ -1,8 +1,9 @@
-import {log} from '@graphprotocol/graph-ts'
+import {log,DataSourceContext} from '@graphprotocol/graph-ts'
 import {PoolAdded} from '../generated/Contract/Registry'
 import {TokenExchange,AddLiquidity,RemoveLiquidity} from '../generated/UnstablePool/StableSwap'
+import {Pool as PoolDataSource} from '../generated/templates'
 export function handlePoolAdded(event: PoolAdded): void {
-  // getOrCreatePool(event.params.pool, event)
+  PoolDataSource.create(event.params.pool)
   log.info("----------------Step into handlePoolAdded-----------------------",[])
 }
 
