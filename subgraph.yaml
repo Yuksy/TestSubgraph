@@ -12,7 +12,7 @@ templates:
       kind: ethereum/events
       apiVersion: 0.0.4
       language: wasm/assemblyscript
-      file: ./src/mappings/pool.ts
+      file: ./src/mapping.ts
       entities:
         - Pool
       abis:
@@ -23,27 +23,10 @@ templates:
       eventHandlers:
         - event: AddLiquidity(indexed address,uint256[2],uint256,uint256)
           handler: handleAddLiquidity
-        - event: NewAdmin(indexed address)
-          handler: handleNewAdmin
-        - event: NewParameters(uint256,uint256,uint256)
-          handler: handleNewParameters
-        - event: NewFee(uint256,uint256)
-          handler: handleNewFee
-        - event: RampA(uint256,uint256,uint256,uint256)
-          handler: handleRampA
-        - event: StopRampA(uint256,uint256)
-          handler: handleStopRampA
         - event: RemoveLiquidity(indexed address,uint256[2],uint256)
           handler: handleRemoveLiquidity
-        - event: RemoveLiquidityImbalance(indexed address,uint256[2],uint256[2],uint256,uint256)
-          handler: handleRemoveLiquidityImbalance
-        - event: RemoveLiquidityOne(indexed address,uint256,uint256)
-          handler: handleRemoveLiquidityOne
-        - event: TokenExchangeTokenExchange(indexed address,uint256,uint256,uint256,uint256)
-          handler: handleTokenExchange
-        - event: TokenExchangeUnderlying(indexed address,int128,uint256,int128,uint256)
-          handler: handleTokenExchangeUnderlying
-
+        - event: TokenExchange(indexed address,uint256,uint256,uint256,uint256)
+          handler: handleUnstableTokenExchange
 
 dataSources:
   - kind: ethereum/contract
