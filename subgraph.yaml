@@ -26,3 +26,28 @@ dataSources:
         - event: PoolAdded(indexed address)
           handler: handlePoolAdded
       file: ./src/mapping.ts
+  
+  - name: UnstablePool
+    kind: ethereum/contract
+    network: mainnet
+    source:
+      abi: StableSwap
+      address: '0x2cA08166260BB48cABd7ce59C26efDcbCe1421Eb'
+      startBlock: 10707900
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mapping.ts
+      entities:
+        - Pool
+      abis:
+          - name: StableSwap
+            file: ./abis/StableSwap.abi
+      eventHandlers:
+        - event: TokenExchange(indexed address,uint256,uint256,uint256,uint256)
+          handler: handleUnstableTokenExchange
+        - event: AddLiquidity(indexed address,uint256[2],uint256[2],uint256,uint256)
+          handler: handleAddLiquidity
+        - event: RemoveLiquidity(indexed address,uint256[2],uint256[2],uint256)
+          handler: handleRemoveLiquidity
